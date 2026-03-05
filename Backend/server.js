@@ -10,7 +10,11 @@ const app = express();
 
 // CORS
 app.use(cors({
-  origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
+  origin: [
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "https://betterside.onrender.com"
+  ],
   credentials: true
 }));
 

@@ -1,10 +1,13 @@
-const mysql = require("mysql2");
+const mongoose = require("mongoose");
 
-const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "my app"   // 👈 EXACT name
-});
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB Connected");
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
+};
 
-module.exports = db;
+module.exports = connectDB;
