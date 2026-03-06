@@ -115,7 +115,7 @@
         <input type="text" name="budget">
     </div>
 
-<button type="submit" class="submit-btn" id="buyerBtn">
+               <button type="submit" class="submit-btn">
     Complete Registration
 </button>
           
@@ -347,14 +347,12 @@ document.getElementById("buyerForm").addEventListener("submit", async function(e
 
     const data = await res.json();
 
-  if(res.ok){
-    localStorage.setItem("userName", data.user.name);
-    localStorage.setItem("userRole", data.user.role);
+    if(res.ok){
+        localStorage.setItem("userName", data.user.name);
+        localStorage.setItem("userRole", data.user.role);
 
-    window.location.href = "../Dashboard/dashboard.html";
-} else {
-    alert(data.message || "Signup failed");
-}
+        window.location.href = "../Dashboard/dashboard.html";
+    }
 });
 document.getElementById("partnerForm").addEventListener("submit", async function(e) {
     e.preventDefault();
@@ -380,7 +378,7 @@ document.getElementById("partnerForm").addEventListener("submit", async function
             email,
             city,
             password,
-           role: "channelPartner"
+            role: "partner"
         })
     });
 
@@ -483,10 +481,6 @@ document.getElementById("partnerForm").addEventListener("submit", async function
     el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
   });
 });
-
-const btn = document.getElementById("buyerBtn");
-btn.innerText = "Creating Account...";
-btn.disabled = true;
     </script>
     
 
