@@ -375,20 +375,24 @@ imageUpload.addEventListener("change", function() {
     }
 
 
-    const API_URL = "https://betterside-api.onrender.com/api/dashboard/stats";
+        const API_URL = "https://script.google.com/macros/s/AKfycbw2ZwJnLGniLWe8XtEBU95wGy9hvge2_QPnLhLfVngQ858jeVIc8d98JuENyIO_FLxH6A/exec";
 
-async function loadDashboardData() {
+    async function loadDashboardData() {
+        try {
+            const res = await fetch(API_URL);
+            const data = await res.json();
 
-    const res = await fetch(API_URL);
-    const data = await res.json();
+            document.getElementById("todayLeads").textContent = data.today_leads;
+            document.getElementById("totalLeads").textContent = data.total_leads;
+            document.getElementById("activeProjects").textContent = data.active_projects;
+            document.getElementById("adsInProgress").textContent = data.ads_in_progress;
 
-    document.getElementById("todayLeads").textContent = data.buyers;
-    document.getElementById("totalLeads").textContent = data.partners;
-    document.getElementById("activeProjects").textContent = data.developers;
+        } catch (error) {
+            console.error("Error loading dashboard data:", error);
+        }
+    }
 
-}
-
-loadDashboardData();
+    loadDashboardData();
 </script>
 
 </body>
