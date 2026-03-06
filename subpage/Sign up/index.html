@@ -291,18 +291,17 @@ document.getElementById("developerForm").addEventListener("submit", async functi
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            developerName,
-            contactName,
-            phone,
-            email,
-            city,
-            password,
-            gstNumber,
-            reraNumber,
-            documentLink,
-            role: "developer"
-        })
+   body: JSON.stringify({
+    name: contactName,
+    phone,
+    email,
+    city,
+    password,
+    gstNumber,
+    reraNumber,
+    documentLink,
+    role: "developer"
+})
     });
 
     const data = await res.json();
