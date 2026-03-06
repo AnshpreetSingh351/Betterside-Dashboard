@@ -286,37 +286,45 @@ document.getElementById("developerForm").addEventListener("submit", async functi
     const reraNumber = formData.get("reraNumber");
     const documentLink = formData.get("documentLink");
 
-    const res = await fetch("https://betterside-api.onrender.com/api/auth/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name: contactName,   // required for backend
-            developerName,
-            phone,
-            email,
-            city,
-            password,
-            gstNumber,
-            reraNumber,
-            documentLink,
-            role: "developer"
-        })
-    });
+    try{
 
-    const data = await res.json();
+        const res = await fetch("https://betterside-api.onrender.com/api/auth/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: contactName,
+                developerName,
+                phone,
+                email,
+                city,
+                password,
+                gstNumber,
+                reraNumber,
+                documentLink,
+                role: "developer"
+            })
+        });
 
-    if(res.ok){
-        localStorage.setItem("userName", data.user.name);
-        localStorage.setItem("userRole", data.user.role);
+        const data = await res.json();
+        console.log("SERVER RESPONSE:", data);
 
-        window.location.href = "../Dashboard/dashboard.html";
-    } else {
-        alert(data.message);
+        if(res.ok){
+            localStorage.setItem("userName", data.user.name);
+            localStorage.setItem("userRole", data.user.role);
+
+            window.location.href = "../Dashboard/dashboard.html";
+        } else {
+            alert(data.message || "Signup failed");
+        }
+
+    } catch(err){
+        console.error(err);
+        alert("Server error");
     }
-});
-        // BUYER SIGNUP
+
+});   // BUYER SIGNUP
 document.getElementById("buyerForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
@@ -329,31 +337,39 @@ document.getElementById("buyerForm").addEventListener("submit", async function(e
     const password = formData.get("password");
     const budget = formData.get("budget");
 
-    const res = await fetch("https://betterside-api.onrender.com/api/auth/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name,
-            phone,
-            email,
-            city,
-            password,
-            budget,
-            role: "buyer"
-        })
-    });
+    try{
+        const res = await fetch("https://betterside-api.onrender.com/api/auth/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name,
+                phone,
+                email,
+                city,
+                password,
+                budget,
+                role: "buyer"
+            })
+        });
 
-    const data = await res.json();
+        const data = await res.json();
+        console.log("SERVER RESPONSE:", data);
 
-    if(res.ok){
-        localStorage.setItem("userName", data.user.name);
-        localStorage.setItem("userRole", data.user.role);
+        if(res.ok){
+            localStorage.setItem("userName", data.user.name);
+            localStorage.setItem("userRole", data.user.role);
+            window.location.href = "../Dashboard/dashboard.html";
+        } else {
+            alert(data.message || "Signup failed");
+        }
 
-        window.location.href = "../Dashboard/dashboard.html";
+    }catch(err){
+        console.error(err);
+        alert("Server error");
     }
 });
+
+
 document.getElementById("partnerForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
@@ -366,31 +382,39 @@ document.getElementById("partnerForm").addEventListener("submit", async function
     const city = formData.get("city");
     const password = formData.get("password");
 
-    const res = await fetch("https://betterside-api.onrender.com/api/auth/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name,
-            companyName,
-            phone,
-            email,
-            city,
-            password,
-            role: "partner"
-        })
-    });
+    try{
+        const res = await fetch("https://betterside-api.onrender.com/api/auth/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name,
+                companyName,
+                phone,
+                email,
+                city,
+                password,
+                role: "partner"
+            })
+        });
 
-    const data = await res.json();
+        const data = await res.json();
+        console.log("SERVER RESPONSE:", data);
 
-    if(res.ok){
-        localStorage.setItem("userName", data.user.name);
-        localStorage.setItem("userRole", data.user.role);
+        if(res.ok){
+            localStorage.setItem("userName", data.user.name);
+            localStorage.setItem("userRole", data.user.role);
+            window.location.href = "../Dashboard/dashboard.html";
+        } else {
+            alert(data.message || "Signup failed");
+        }
 
-        window.location.href = "../Dashboard/dashboard.html";
+    }catch(err){
+        console.error(err);
+        alert("Server error");
     }
 });
+
+
         // 1. Theme Toggle Logic
         const toggle = document.getElementById("themeToggle");
         const icon = toggle.querySelector("i");
