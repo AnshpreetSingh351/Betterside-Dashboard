@@ -54,23 +54,3 @@ document.getElementById("logoutBtn").addEventListener("click", function(e) {
     // redirect to login page
 window.location.href = "/index.html";
 });
-const userName = localStorage.getItem("userName");
-const userEmail = localStorage.getItem("userEmail");
-const userCity = localStorage.getItem("userCity");
-const companyName = localStorage.getItem("companyName");
-
-if (userName) {
- document.getElementById("profileName").textContent = userName;
-}
-
-if (userEmail) {
- document.getElementById("profileEmail").textContent = userEmail;
-}
-
-if (userCity) {
- document.getElementById("profileLocation").textContent = userCity;
-}
-
-if (companyName) {
- document.getElementById("profileCompany").textContent = companyName;
-}
