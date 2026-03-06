@@ -5,27 +5,49 @@ const User = require("../models/User");
 // SIGNUP ROUTE
 router.post("/signup", async (req, res) => {
   try {
- const { name, email, password, role } = req.body;
 
-    // Basic validation
+    const {
+      name,
+      email,
+      password,
+      role,
+      phone,
+      city,
+      budget,
+      companyName,
+      developerName,
+      contactName,
+      gstNumber,
+      reraNumber,
+      documentLink
+    } = req.body;
+
     if (!name || !email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({ message: "Required fields missing" });
     }
 
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // Create new user
-  const newUser = await User.create({
-  name,
-  email,
-  password,
-  role
-});
+    const newUser = await User.create({
+      name,
+      email,
+      password,
+      role,
+      phone,
+      city,
+      budget,
+      companyName,
+      developerName,
+      contactName,
+      gstNumber,
+      reraNumber,
+      documentLink
+    });
+
     res.status(201).json({
       message: "User created successfully",
       user: newUser
