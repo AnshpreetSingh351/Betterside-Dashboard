@@ -291,17 +291,18 @@ document.getElementById("developerForm").addEventListener("submit", async functi
         headers: {
             "Content-Type": "application/json"
         },
-   body: JSON.stringify({
-    name: contactName,
-    phone,
-    email,
-    city,
-    password,
-    gstNumber,
-    reraNumber,
-    documentLink,
-    role: "developer"
-})
+        body: JSON.stringify({
+            name: contactName,   // required for backend
+            developerName,
+            phone,
+            email,
+            city,
+            password,
+            gstNumber,
+            reraNumber,
+            documentLink,
+            role: "developer"
+        })
     });
 
     const data = await res.json();
@@ -311,6 +312,8 @@ document.getElementById("developerForm").addEventListener("submit", async functi
         localStorage.setItem("userRole", data.user.role);
 
         window.location.href = "../Dashboard/dashboard.html";
+    } else {
+        alert(data.message);
     }
 });
         // BUYER SIGNUP
