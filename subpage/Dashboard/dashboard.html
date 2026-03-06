@@ -46,8 +46,8 @@
     <input type="file" id="imageUpload" accept="image/*" hidden>
     
     <div class="user-details">
-        <h4 id="sidebarName">Rohit Sharma</h4>
-        <span id="sidebarRole">Registered Partner</span>
+       <h4 id="sidebarName"></h4>
+       <span id="sidebarRole"></span>
     </div>
 </div>
 </div>
@@ -362,30 +362,27 @@ imageUpload.addEventListener("change", function() {
     reader.readAsDataURL(file);
 });
 
-    const userName = localStorage.getItem("userName");
-    const userRole = localStorage.getItem("userRole");
+const userName = localStorage.getItem("userName");
+const userRole = localStorage.getItem("userRole");
 
-    if (userName) {
-        // Top welcome
-        document.getElementById("welcomeName").textContent = userName;
+if (userName) {
 
-        // Sidebar name
-        document.getElementById("sidebarName").textContent = userName;
+    if (welcomeName) welcomeName.textContent = userName;
+    if (sidebarName) sidebarName.textContent = userName;
 
-        // Avatar initials
-        const initials = userName
-            .split(" ")
-            .map(word => word[0])
-            .join("")
-            .toUpperCase();
+    const initials = userName
+        .split(" ")
+        .map(word => word[0])
+        .join("")
+        .toUpperCase();
 
-        document.getElementById("sidebarAvatar").textContent = initials;
-    }
+    if (avatarInitials) avatarInitials.textContent = initials;
+}
 
-    if (userRole) {
-        document.getElementById("sidebarRole").textContent =
-            userRole.charAt(0).toUpperCase() + userRole.slice(1);
-    }
+if (userRole) {
+    document.getElementById("sidebarRole").textContent =
+        userRole.charAt(0).toUpperCase() + userRole.slice(1);
+}
 
 
         const API_URL = "https://script.google.com/macros/s/AKfycbw2ZwJnLGniLWe8XtEBU95wGy9hvge2_QPnLhLfVngQ858jeVIc8d98JuENyIO_FLxH6A/exec";
