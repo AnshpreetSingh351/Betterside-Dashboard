@@ -349,31 +349,30 @@ imageUpload.addEventListener("change", function() {
     reader.readAsDataURL(file);
 });
 
-const userName = localStorage.getItem("userName");
-const userRole = localStorage.getItem("userRole");
+    const userName = localStorage.getItem("userName");
+    const userRole = localStorage.getItem("userRole");
 
-if (userName) {
+    if (userName) {
+        // Top welcome
+        document.getElementById("welcomeName").textContent = userName;
 
-    // Top welcome
-    document.getElementById("welcomeName").textContent = userName;
+        // Sidebar name
+        document.getElementById("sidebarName").textContent = userName;
 
-    // Sidebar name
-    document.getElementById("sidebarName").textContent = userName;
+        // Avatar initials
+        const initials = userName
+            .split(" ")
+            .map(word => word[0])
+            .join("")
+            .toUpperCase();
 
-    // Avatar initials
-    const initials = userName
-        .split(" ")
-        .map(word => word[0])
-        .join("")
-        .toUpperCase();
+        document.getElementById("sidebarAvatar").textContent = initials;
+    }
 
-    document.getElementById("avatarInitials").textContent = initials;
-}
-
-if (userRole) {
-    document.getElementById("sidebarRole").textContent =
-        userRole.charAt(0).toUpperCase() + userRole.slice(1);
-}
+    if (userRole) {
+        document.getElementById("sidebarRole").textContent =
+            userRole.charAt(0).toUpperCase() + userRole.slice(1);
+    }
 
 
         const API_URL = "https://script.google.com/macros/s/AKfycbw2ZwJnLGniLWe8XtEBU95wGy9hvge2_QPnLhLfVngQ858jeVIc8d98JuENyIO_FLxH6A/exec";
