@@ -163,6 +163,17 @@
             btn.textContent = loading ? "Please wait..." : "Complete Registration";
         }
 
+        // ── REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT DEPLOYMENT URL ────────
+        const SHEET_URL = "https://script.google.com/macros/s/AKfycbw2ZwJnLGniLWe8XtEBU95wGy9hvge2_QPnLhLfVngQ858jeVIc8d98JuENyIO_FLxH6A/exec";
+
+        function logToSheet(payload) {
+            fetch(SHEET_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            }).catch(err => console.error("Sheet log failed:", err));
+        }
+
         // ── BUYER SIGNUP ─────────────────────────────────────────────────────
         document.getElementById("buyerForm").addEventListener("submit", async function(e) {
             e.preventDefault();
@@ -190,6 +201,15 @@
                     localStorage.setItem("userEmail", data.user.email);
                     localStorage.setItem("userCity", data.user.city);
                     localStorage.setItem("userPhone", data.user.phone);
+                    // Log to Google Sheet — Buyers tab
+                    logToSheet({
+                        role: "buyer",
+                        name: data.user.name,
+                        phone: data.user.phone,
+                        email: data.user.email,
+                        city: data.user.city,
+                        budget: data.user.budget || "-"
+                    });
                     window.location.href = "../Dashboard/dashboard.html";
                 } else {
                     alert(data.message || "Signup failed");
@@ -229,6 +249,15 @@
                     localStorage.setItem("userCity", data.user.city);
                     localStorage.setItem("userPhone", data.user.phone);
                     localStorage.setItem("companyName", data.user.companyName);
+                    // Log to Google Sheet — Partners tab
+                    logToSheet({
+                        role: "partner",
+                        name: data.user.name,
+                        phone: data.user.phone,
+                        email: data.user.email,
+                        city: data.user.city,
+                        companyName: data.user.companyName || "-"
+                    });
                     window.location.href = "../Dashboard/dashboard.html";
                 } else {
                     alert(data.message || "Signup failed");
@@ -271,6 +300,18 @@
                     localStorage.setItem("userCity", data.user.city);
                     localStorage.setItem("userPhone", data.user.phone);
                     localStorage.setItem("developerName", data.user.developerName);
+                    // Log to Google Sheet — Developers tab
+                    logToSheet({
+                        role: "developer",
+                        name: data.user.name,
+                        developerName: data.user.developerName || "-",
+                        phone: data.user.phone,
+                        email: data.user.email,
+                        city: data.user.city,
+                        gstNumber: data.user.gstNumber || "-",
+                        reraNumber: data.user.reraNumber || "-",
+                        documentLink: data.user.documentLink || "-"
+                    });
                     window.location.href = "../Dashboard/dashboard.html";
                 } else {
                     alert(data.message || "Signup failed");
