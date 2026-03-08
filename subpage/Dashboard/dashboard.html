@@ -303,35 +303,37 @@
         });
 
         // ── FILL ALL USER INFO FROM LOCALSTORAGE ──────────────────────────────
-        const userName    = localStorage.getItem("userName");
-        const userRole    = localStorage.getItem("userRole");
-        const userEmail   = localStorage.getItem("userEmail");
-        const userCity    = localStorage.getItem("userCity");
-        const userPhone   = localStorage.getItem("userPhone");
-        const companyName = localStorage.getItem("companyName") || localStorage.getItem("developerName") || "-";
+        // Wrapped in block {} to avoid 'already declared' conflict with script.js
+        {
+            const _name    = localStorage.getItem("userName");
+            const _role    = localStorage.getItem("userRole");
+            const _email   = localStorage.getItem("userEmail");
+            const _city    = localStorage.getItem("userCity");
+            const _phone   = localStorage.getItem("userPhone");
+            const _company = localStorage.getItem("companyName") || localStorage.getItem("developerName") || "-";
 
-        // Welcome + sidebar
-        if (userName) {
-            document.getElementById("welcomeName").textContent = userName;
-            document.getElementById("sidebarName").textContent = userName;
+            // Welcome + sidebar
+            if (_name) {
+                document.getElementById("welcomeName").textContent = _name;
+                document.getElementById("sidebarName").textContent = _name;
 
-            // Initials for sidebar avatar and profile avatar
-            const initials = userName.split(" ").map(w => w[0]).join("").toUpperCase().substring(0, 2);
-            document.getElementById("avatarInitials").textContent = initials;
-            document.getElementById("profileAvatarLg").textContent = initials;
+                const initials = _name.split(" ").map(w => w[0]).join("").toUpperCase().substring(0, 2);
+                document.getElementById("avatarInitials").textContent = initials;
+                document.getElementById("profileAvatarLg").textContent = initials;
+            }
+
+            if (_role) {
+                document.getElementById("sidebarRole").textContent =
+                    _role.charAt(0).toUpperCase() + _role.slice(1);
+            }
+
+            // Profile section
+            if (_name)    document.getElementById("profileName").textContent     = _name;
+            if (_email)   document.getElementById("profileEmail").textContent    = _email;
+            if (_city)    document.getElementById("profileLocation").textContent = _city;
+            if (_phone)   document.getElementById("profilePhone").textContent    = _phone;
+            if (_company) document.getElementById("profileCompany").textContent  = _company;
         }
-
-        if (userRole) {
-            document.getElementById("sidebarRole").textContent =
-                userRole.charAt(0).toUpperCase() + userRole.slice(1);
-        }
-
-        // Profile section
-        if (userName)    document.getElementById("profileName").textContent     = userName;
-        if (userEmail)   document.getElementById("profileEmail").textContent    = userEmail;
-        if (userCity)    document.getElementById("profileLocation").textContent = userCity;
-        if (userPhone)   document.getElementById("profilePhone").textContent    = userPhone;
-        if (companyName) document.getElementById("profileCompany").textContent  = companyName;
 
         // ── DASHBOARD STATS (Google Sheets) ───────────────────────────────────
         const API_URL = "https://script.google.com/macros/s/AKfycbw2ZwJnLGniLWe8XtEBU95wGy9hvge2_QPnLhLfVngQ858jeVIc8d98JuENyIO_FLxH6A/exec";
