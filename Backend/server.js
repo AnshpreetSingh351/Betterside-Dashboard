@@ -9,22 +9,23 @@ connectDB();
 
 const app = express();
 
-// CORS
+// CORS — fixed: added betterside-api origin & moved all origins here
 app.use(cors({
   origin: [
     "http://127.0.0.1:5500",
     "http://localhost:5500",
-    "https://betterside.onrender.com"
+    "https://betterside.onrender.com",
+    "https://betterside-api.onrender.com"
   ],
   credentials: true
 }));
 
 app.use(express.json());
 
-// ROUTES
+// ROUTES — fixed: all routes before app.listen()
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/dashboard", require("./routes/dashboard"));
 
-// Test route
 app.get("/", (req, res) => {
   res.send("Server is running 🚀");
 });
@@ -34,6 +35,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-const dashboardRoutes = require("./routes/dashboard");
-app.use("/api/dashboard", dashboardRoutes);
