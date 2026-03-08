@@ -169,7 +169,7 @@
         function logToSheet(payload) {
             fetch(SHEET_URL, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "text/plain" },
                 body: JSON.stringify(payload)
             }).catch(err => console.error("Sheet log failed:", err));
         }
