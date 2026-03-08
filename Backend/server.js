@@ -5,13 +5,9 @@ const express = require("express");
 const connectDB = require("./config/db");
 const cors = require("cors");
 
-const app = express();
-
-// CONNECT DATABASE
 connectDB();
 
-// MIDDLEWARE
-app.use(express.json());
+const app = express();
 
 // CORS
 app.use(cors({
@@ -23,20 +19,21 @@ app.use(cors({
   credentials: true
 }));
 
+app.use(express.json());
+
 // ROUTES
 app.use("/api/auth", require("./routes/auth"));
 
-const dashboardRoutes = require("./routes/dashboard");
-app.use("/api/dashboard", dashboardRoutes);
-
-// TEST ROUTE
+// Test route
 app.get("/", (req, res) => {
   res.send("Server is running 🚀");
 });
 
-// SERVER
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+const dashboardRoutes = require("./routes/dashboard");
+app.use("/api/dashboard", dashboardRoutes);
