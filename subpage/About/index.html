@@ -6,15 +6,11 @@
   <title>About Us - BetterSide</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Questrial&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
-  <!-- No external icon CDN needed - using inline emoji icons -->
   <link rel="stylesheet" href="about-style.css"/>
 </head>
 <body>
 
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-
-  <a href="/" class="back-arrow"> ←</a>
+<a href="/" class="back-arrow"> ←</a>
 
   <div class="video-container">
     <video autoplay muted loop playsinline class="bg-video">
@@ -30,7 +26,7 @@
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="./../../index.html">Home</a></li>
-      <li><a href="#">Explore</a></li>
+      <li><a href="./../../subpage/Explore/explore.html">Explore</a></li>
       <li><a href="#">Blog</a></li>
       <li class="active"><a href="./../../subpage/About/index.html">About</a></li>
       <li><a href="./../../subpage/contact/contact.html">Contact</a></li>
@@ -49,26 +45,6 @@
       <span></span><span></span><span></span>
     </div>
   </nav>
-
-  <label class="theme-switch">
-    <input type="checkbox" id="theme-toggle"/>
-    <span class="slider-tog">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-    </span>
-  </label>
 
   <div class="page-wrapper">
     <div class="main-container">
@@ -109,14 +85,57 @@
       <section class="future-showcase reveal">
         <div class="full-width-type">
           <h2 class="fw-line gradient-text">WE ARE</h2>
-          <div class="vr-interruption">
-            <img src="image/Untitled design (7).png" alt="VR Headset" class="floating-vr"/>
-          </div>
           <h2 class="fw-line white-text">THE FUTURE</h2>
         </div>
         <blockquote class="quote-box">
           "We help premium real estate developers go beyond brochures and 3D walkthrough videos."
         </blockquote>
+      </section>
+
+      <section class="team-section">
+        <div class="section-tag reveal">The People Behind It</div>
+        <h3 class="section-title reveal">Meet the <span class="gradient-text-orange">Founders</span></h3>
+        <p class="section-subtitle reveal">Real estate veterans turned technology innovators, building the future of property marketing in India and beyond.</p>
+        <div class="team-grid">
+          <div class="team-card reveal">
+            <div class="team-photo-wrap">
+              <img src="image/Owner.jpeg" alt="Founder" class="team-photo" onerror="this.style.opacity='0'"/>
+              <div class="team-photo-placeholder">
+                <span>📷</span>
+                <span class="tp-hint">Place Photo Here</span>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name">Founder Name</h4>
+              <span class="team-role">Co-Founder &amp; CEO</span>
+              <p class="team-bio">With over a decade in luxury real estate development, driving innovation at the intersection of technology and premium property marketing across India's fastest-growing markets.</p>
+              <div class="team-tags">
+                <span>Real Estate</span>
+                <span>Strategy</span>
+                <span>Luxury Markets</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-card reveal" style="transition-delay:.12s">
+            <div class="team-photo-wrap">
+              <img src="image/founder2.jpg" alt="Founder" class="team-photo" onerror="this.style.opacity='0'"/>
+              <div class="team-photo-placeholder">
+                <span>📷</span>
+                <span class="tp-hint">Place Photo Here</span>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name">Founder Name</h4>
+              <span class="team-role">Co-Founder &amp; CTO</span>
+              <p class="team-bio">Pioneering immersive real estate experiences with cutting-edge 3D technology and digital marketing expertise, turning property visions into unforgettable buyer journeys.</p>
+              <div class="team-tags">
+                <span>3D Technology</span>
+                <span>Digital Marketing</span>
+                <span>Innovation</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div class="section-divider reveal"></div>
@@ -140,40 +159,10 @@
             <div class="card-num">02</div>
           </div>
           <div class="glass-card reveal" style="transition-delay:.14s">
-            <div style="font-size:1.4rem" class="icon-box gradient-purple">🥽</div>
-            <h4>VR Solutions</h4>
-            <p>Virtual reality solutions that transport users to new worlds.</p>
-            <div class="card-num">03</div>
-          </div>
-          <div class="glass-card reveal" style="transition-delay:.21s">
-            <div style="font-size:1.4rem" class="icon-box gradient-cyan">📣</div>
-            <h4>Social Marketing</h4>
-            <p>Strategic social media campaigns that amplify your brand voice.</p>
-            <div class="card-num">04</div>
-          </div>
-          <div class="glass-card reveal" style="transition-delay:.28s">
-            <div style="font-size:1.4rem" class="icon-box gradient-indigo">🏷️</div>
-            <h4>PR &amp; Branding</h4>
-            <p>Build authority and credibility through strategic public relations.</p>
-            <div class="card-num">05</div>
-          </div>
-          <div class="glass-card reveal" style="transition-delay:.35s">
-            <div style="font-size:1.4rem" class="icon-box gradient-teal">👤</div>
-            <h4>Personal Brands</h4>
-            <p>Thought leadership through video interviews and content.</p>
-            <div class="card-num">06</div>
-          </div>
-          <div class="glass-card reveal" style="transition-delay:.42s">
-            <div style="font-size:1.4rem" class="icon-box gradient-red">📈</div>
-            <h4>Performance Ads</h4>
-            <p>Data-driven Google &amp; Meta campaigns optimized for ROI.</p>
-            <div class="card-num">07</div>
-          </div>
-          <div class="glass-card reveal" style="transition-delay:.49s">
             <div style="font-size:1.4rem" class="icon-box gradient-orange">🌐</div>
             <h4>Partner Network</h4>
             <p>Connect with influencers and partners within our vast network.</p>
-            <div class="card-num">08</div>
+            <div class="card-num">03</div>
           </div>
         </div>
       </section>
@@ -193,9 +182,8 @@
           <a href="#" class="btn-outline">📅 Schedule a Call</a>
         </div>
         <div class="footer-links">
-          <!-- Email set via JS to prevent Cloudflare obfuscation -->
           <a href="#" id="email-link">✉ <span id="email-text"></span></a>
-          <a href="tel:+919876543210">📞 +91 98765 43210</a>
+          <a href="tel:+917986519697">📞 +91 7986519697</a>
         </div>
       </section>
 
@@ -206,8 +194,8 @@
   (function () {
 
     // ── Set email via JS so Cloudflare cannot obfuscate it ──
-    var u = 'hello';
-    var d = 'betterside.in';
+    var u = 'info';
+    var d = '@betterside.com';
     var el = document.getElementById('email-link');
     var tx = document.getElementById('email-text');
     if (el && tx) {
@@ -216,57 +204,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-
-      // ── Custom Cursor ──
-      var dot  = document.querySelector('.cursor-dot');
-      var ring = document.querySelector('.cursor-ring');
-
-      if (window.matchMedia('(pointer: fine)').matches && dot && ring) {
-        var mx = 0, my = 0, rx = 0, ry = 0;
-
-        document.addEventListener('mousemove', function (e) {
-          mx = e.clientX;
-          my = e.clientY;
-          dot.style.left = mx + 'px';
-          dot.style.top  = my + 'px';
-        });
-
-        (function loop() {
-          var dx = mx - rx;
-          var dy = my - ry;
-          if (Math.sqrt(dx * dx + dy * dy) > 70) {
-            rx = mx; ry = my;
-          } else {
-            rx += dx * 0.18;
-            ry += dy * 0.18;
-          }
-          ring.style.left = rx + 'px';
-          ring.style.top  = ry + 'px';
-          requestAnimationFrame(loop);
-        }());
-
-        document.querySelectorAll('a, button').forEach(function (el) {
-          el.addEventListener('mouseenter', function () { ring.classList.add('cursor-hover'); });
-          el.addEventListener('mouseleave', function () { ring.classList.remove('cursor-hover'); });
-        });
-
-      } else {
-        if (dot)  dot.style.display  = 'none';
-        if (ring) ring.style.display = 'none';
-      }
-
-      // ── Theme Toggle ──
-      var toggle = document.getElementById('theme-toggle');
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        if (toggle) toggle.checked = true;
-      }
-      if (toggle) {
-        toggle.addEventListener('change', function () {
-          document.body.classList.toggle('dark-mode', this.checked);
-          localStorage.setItem('theme', this.checked ? 'dark' : 'light');
-        });
-      }
 
       // ── Navbar scroll hide/show ──
       var navbar = document.getElementById('navbar');
