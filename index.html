@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BetterSide Real Estate</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="book-a-visit.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Questrial&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,61 +13,67 @@
 
   <header class="hero" style="background-image: url('images/family.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
-    <!-- Pure black gradient, no shapes -->
     <div class="fade-overlay"></div>
 
     <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo-space">
-        <img src="images/Betterside Logo 1.png" alt="BetterSide Logo">
-      </div>
-      <ul class="nav-links">
+    <nav class="navbar" id="mainNav">
+     <a href="./../../index.html" class="logo-space">
+      <img src="../../images/Betterside Logo 1.png" alt="BetterSide"
+        onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span class=\'logo-text\'>Better<span>Side</span></span>')"/>
+    </a>
+      <ul class="nav-links" id="navLinks">
         <li><a href="/subpage/Explore/explore.html">Explore</a></li>
-        <li><a href="#">Blog</a></li>
         <li><a href="/subpage/About/index.html">About</a></li>
-        <li><a href="/subpage/Contact/contact.html">Contact</a></li>
+
+        <!-- ✦ Units Dropdown -->
+        <li class="has-dropdown" id="unitsDropdown">
+          <a href="#" class="dropdown-trigger">Property Listing <span class="dd-chevron"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" onclick="scrollToSection('mdb-section'); return false;">3+1 BHK</a></li>
+            <li><a href="#" onclick="scrollToSection('cm-section'); return false;">4 BHK</a></li>
+            <li><a href="#" onclick="scrollToSection('featured-projects-section'); return false;">Penthouse</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">Blog</a></li>
+        <li><a href="/subpage/Contact/contact.html">Contact FAQ</a></li>
+
         <li class="mobile-auth-btn">
           <button class="login-btn" onclick="window.location.href='/subpage/Login/index.html'" style="width:150px;margin-bottom:10px;border:1px solid #ccc;">Login</button>
         </li>
-        <li class="mobile-auth-btn">
-          <button class="signup-btn" onclick="window.location.href='/subpage/Sign%20up/index.html'" style="width:150px;">Sign Up</button>
-        </li>
       </ul>
+
       <div class="nav-actions">
-        <button class="signup-btn" onclick="window.location.href='/subpage/Sign%20up/index.html'">Sign Up</button>
-        <button class="login-btn"  onclick="window.location.href='/subpage/Login/index.html'">Login</button>
+        <button class="cp-btn" onclick="window.location.href='/subpage/Sign up/index.html'">Become a CP</button>
+        <button class="login-btn" onclick="window.location.href='/subpage/Login/index.html'">Login</button>
       </div>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
 
-    <!-- Hero Body: center text + scroll cue + bottom search -->
+    <!-- Hero Body -->
     <div class="hero-body">
-
-      <!-- Center content -->
       <div class="hero-center hero-intro">
 
+        <!-- Badge -->
         <span class="hero-badge intro-item">
           <span class="badge-dot"></span>Punjab's Premier Real Estate Platform
         </span>
 
+        <!-- Headline -->
         <h1 class="hero-headline intro-item">
-        
           <span class="hl-strong">Don't View Properties. Enter Them</span>
         </h1>
 
-
+       
+      
 
       </div>
 
-      <!-- Scroll cue — centered, above search bar -->
       <div class="hero-scroll-cue" id="scrollCue">
         <span class="scroll-label">Scroll to explore</span>
-        <div class="scroll-track">
-          <div class="scroll-runner"></div>
-        </div>
+        <div class="scroll-track"><div class="scroll-runner"></div></div>
       </div>
 
-      <!-- Search bar — pinned to bottom of hero -->
       <div class="hero-search-bottom intro-item">
         <div class="bs-search-box">
           <div class="bs-search-bar">
@@ -100,16 +107,14 @@
           <div class="bs-search-results" id="searchResults"></div>
         </div>
       </div>
-
     </div>
   </header>
 
   <!-- Featured Projects -->
-  <section class="featured-projects-section">
+  <section class="featured-projects-section" id="featured-projects-section">
     <div class="featured-projects-container">
       <h2 class="featured-title">Our Premium Projects</h2>
       <div class="featured-cards-grid">
-
         <div class="featured-project-card">
           <div class="featured-card-image"><img src="images/cm.jpg" alt="CM Infinia"></div>
           <div class="featured-card-content">
@@ -120,7 +125,6 @@
             <a href="./Subpage/Website/CMInfinia/CMInfinia.html" class="featured-card-btn">View Project</a>
           </div>
         </div>
-
         <div class="featured-project-card">
           <div class="featured-card-image"><img src="images/MDB_Lutyens_1766146795158.jpg" alt="MDB Lutyens"></div>
           <div class="featured-card-content">
@@ -131,7 +135,6 @@
             <a href="./Subpage/Website/MDBTheLutyens/MDBTheLutyens.html" class="featured-card-btn">View Project</a>
           </div>
         </div>
-
         <div class="featured-project-card">
           <div class="featured-card-image"><img src="images/AnantaStreet_1766146992482.jpg" alt="Ananta Street"></div>
           <div class="featured-card-content">
@@ -142,7 +145,6 @@
             <a href="./Subpage/Website/Ananta/Ananta.html" class="featured-card-btn">View Project</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -154,7 +156,6 @@
       <div class="cm-hero-text">
         <h1>CM Infinia</h1>
         <p class="cm-desc">Full immersive tour of CM Infinia, a premium luxury residential tower in the heart of the city</p>
-       
       </div>
     </div>
     <div class="cm-top-row">
@@ -192,7 +193,6 @@
       <div class="cm-hero-text">
         <h1>MDB Lutyens</h1>
         <p class="cm-desc">Full immersive tour of MDB Lutyens, an iconic luxury residential development redefining modern living</p>
-        
       </div>
     </div>
     <div class="cm-top-row">
@@ -230,7 +230,6 @@
       <div class="cm-hero-text">
         <h1>Ananta Street</h1>
         <p class="cm-desc">Full immersive tour of Ananta, a serene premium township alongside the canal with lush greenery</p>
-       
       </div>
     </div>
     <div class="cm-top-row">
@@ -349,7 +348,7 @@
           </div>
         </div>
         <div class="bs-map-section">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.678912345678!2d75.845!3d30.895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a828f09012345%3A0xabcdef0123456789!2sNirmal%20Nagar%20Rd%2C%20Dugri%2C%20Ludhiana%2C%20Punjab%20141003!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.5156752562984!2d75.84474317558585!3d30.872232174517286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a83eb70abb0a3%3A0xb2cea78c46492a36!2sBetterSide!5e0!3m2!1sen!2sin!4v1775458439162!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <div class="bs-divider"></div>
@@ -396,8 +395,128 @@
     </div>
   </footer>
 
+  <!-- ═══════════════════════════════════════
+       BOOK A VISIT MODAL
+  ═══════════════════════════════════════ -->
+  <div class="bav-overlay" id="bavOverlay">
+    <div class="bav-backdrop" id="bavBackdrop"></div>
+
+    <div class="bav-modal" role="dialog" aria-modal="true" aria-label="Book a Site Visit">
+
+      <div class="bav-modal-header">
+        <div class="bav-header-top">
+          <div class="bav-brand-pill">
+            <span class="bav-brand-dot"></span>
+            BetterSide Real Estate
+          </div>
+          <button class="bav-close-btn" id="bavCloseBtn" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <h2 class="bav-modal-title">Book a <span>Site Visit</span></h2>
+        <p class="bav-modal-sub">Our expert will call you within 24 hours to confirm your slot.</p>
+        <div class="bav-header-stats">
+          <div class="bav-stat">
+            <div class="bav-stat-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div class="bav-stat-text"><strong>Quick Response</strong>Within 24 hours</div>
+          </div>
+          <div class="bav-stat">
+            <div class="bav-stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="bav-stat-text"><strong>100% Free</strong>No hidden charges</div>
+          </div>
+          <div class="bav-stat">
+            <div class="bav-stat-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="bav-stat-text"><strong>3 Projects</strong>Across Punjab</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bav-form-body" id="bavFormBody">
+        <form id="bavForm" novalidate>
+          <div class="bav-form-grid">
+
+            <div class="bav-form-group">
+              <label class="bav-label" for="bavName">Full Name <span class="bav-required"></span></label>
+              <div class="bav-input-wrap">
+                <input type="text" id="bavName" class="bav-input" placeholder="Name">
+                <span class="bav-input-icon"><i class="fa-solid fa-user"></i></span>
+              </div>
+              <span class="bav-error-hint" id="bavNameErr">Please enter your full name</span>
+            </div>
+
+            <div class="bav-form-group">
+              <label class="bav-label" for="bavEmail">Email Address <span class="bav-required"></span></label>
+              <div class="bav-input-wrap">
+                <input type="email" id="bavEmail" class="bav-input" placeholder="Email">
+                <span class="bav-input-icon"><i class="fa-solid fa-envelope"></i></span>
+              </div>
+              <span class="bav-error-hint" id="bavEmailErr">Please enter a valid email</span>
+            </div>
+
+            <div class="bav-form-group">
+              <label class="bav-label" for="bavPhone">Mobile Number <span class="bav-required"></span></label>
+              <div class="bav-phone-wrap">
+                <span class="bav-phone-prefix">🇮🇳 +91</span>
+                <input type="tel" id="bavPhone" class="bav-input" placeholder="" maxlength="10" autocomplete="tel">
+              </div>
+              <span class="bav-error-hint" id="bavPhoneErr">Please enter a valid 10-digit number</span>
+            </div>
+
+            <div class="bav-form-group">
+              <label class="bav-label" for="bavCity">City / State <span class="bav-required"></span></label>
+              <div class="bav-input-wrap">
+                <input type="text" id="bavCity" class="bav-input" placeholder="City / State">
+                <span class="bav-input-icon"><i class="fa-solid fa-location-dot"></i></span>
+              </div>
+              <span class="bav-error-hint" id="bavCityErr">Please enter your city / state</span>
+            </div>
+
+          </div>
+
+          <div class="bav-consent" id="bavConsentBox" role="checkbox" aria-checked="false" tabindex="0">
+            <div class="bav-checkbox-custom" id="bavCheckbox"></div>
+            <p class="bav-consent-text">
+              I hereby give my consent to receive further communication from <strong>BetterSide</strong> via Call, SMS, Email or WhatsApp about its products and offers. This consent overrides any registration for <strong>DND / NDNC</strong>.
+            </p>
+          </div>
+          <span class="bav-error-hint" id="bavConsentErr" style="margin-top:-12px; margin-bottom:14px; display:none;">Please give your consent to proceed</span>
+
+          <button type="submit" class="bav-submit-btn" id="bavSubmitBtn">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Submit</span>
+            <span class="bav-btn-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+
+          <p class="bav-footer-note">
+            <i class="fa-solid fa-lock"></i>
+            Your information is secure and will never be shared with third parties.
+          </p>
+        </form>
+
+        <div class="bav-success" id="bavSuccess">
+          <div class="bav-success-ring"><i class="fa-solid fa-check"></i></div>
+          <h3>Visit Booked!</h3>
+          <p>Thank you! Our team will reach out within 24 hours to confirm your site visit. We look forward to seeing you.</p>
+          <button class="bav-success-close" id="bavSuccessClose">Done</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- END BOOK A VISIT MODAL -->
+
   <script>
-    /* Map Switcher */
+    /* ---- Smooth scroll helper ---- */
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top, behavior: 'smooth' });
+      document.getElementById('unitsDropdown').classList.remove('open');
+      document.getElementById('navLinks').classList.remove('active');
+    }
+
+    /* ---- Map Switcher ---- */
     (function(){
       const cards = document.querySelectorAll('.bs-loc-card');
       const dots  = document.querySelectorAll('.bs-loc-dot');
@@ -413,12 +532,24 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      /* Mobile menu */
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks  = document.querySelector('.nav-links');
+      /* ---- Hamburger ---- */
+      const hamburger = document.getElementById('hamburger');
+      const navLinks  = document.getElementById('navLinks');
       if (hamburger && navLinks) hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-      /* Navbar scroll */
+      /* ---- Units dropdown ---- */
+      const dropdown = document.getElementById('unitsDropdown');
+      const trigger  = dropdown.querySelector('.dropdown-trigger');
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
+      });
+
+      /* ---- Navbar scroll ---- */
       const navbar = document.querySelector('.navbar');
       let lastY = window.scrollY;
       window.addEventListener('scroll', () => {
@@ -428,28 +559,27 @@
           if (cur > lastY && cur > 120) navbar.classList.add('nav-hide');
           else if (cur < lastY) navbar.classList.remove('nav-hide');
         }
-        /* Fade scroll cue */
         const cue = document.getElementById('scrollCue');
         if (cue) { cue.style.opacity = cur > 80 ? '0' : '1'; cue.style.pointerEvents = cur > 80 ? 'none' : 'auto'; }
         lastY = cur;
       }, { passive: true });
 
-      /* Scroll-to-top */
+      /* ---- Scroll-to-top ---- */
       const stt = document.getElementById('scrollToTop');
       if (stt) stt.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-      /* Hero animation */
+      /* ---- Hero animation ---- */
       const heroIntro = document.querySelector('.hero-intro');
       if (heroIntro) { heroIntro.classList.remove('animate'); void heroIntro.offsetWidth; setTimeout(() => heroIntro.classList.add('animate'), 60); }
 
-      /* Scroll cue click */
+      /* ---- Scroll cue click ---- */
       const cueEl = document.getElementById('scrollCue');
       if (cueEl) cueEl.addEventListener('click', () => document.querySelector('.featured-projects-section')?.scrollIntoView({ behavior: 'smooth' }));
     });
   </script>
 
   <script>
-    /* Hero Search */
+    /* ---- Hero Search ---- */
     (function(){
       const projects = [
         { name:'CM Infinia',    location:'CM Valley, Jainpur, Ludhiana',   type:'apartments', price:'100+',   area:'4600+ sq.ft', sectionId:'cm-section',     image:'images/cm.jpg',                          desc:'Premium luxury residential tower in the heart of Ludhiana' },
@@ -474,7 +604,11 @@
       document.addEventListener('click',e=>{ if(!e.target.closest('.bs-search-box'))sr.classList.remove('visible'); });
       si.addEventListener('focus',()=>{ if(si.value.trim().length>0)show(filter()); });
     })();
+    
   </script>
+
+  <!-- Book a Visit Script -->
+  <script src="book-a-visit.js"></script>
 
 </body>
 </html>

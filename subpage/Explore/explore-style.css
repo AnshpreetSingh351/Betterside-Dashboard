@@ -38,6 +38,77 @@ body {
   border-radius: 25px; cursor: pointer; transition: all 0.3s ease;
   font-family: 'Questrial', sans-serif;
 }
+/* ============================================
+   DROPDOWN
+   ============================================ */
+.nav-links .has-dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dd-chevron {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.25s ease;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+.has-dropdown.open .dd-chevron {
+  transform: rotate(-135deg) translateY(2px);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200,200,200,0.4);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.06);
+  min-width: 180px;
+  padding: 8px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  z-index: 1000;
+}
+
+.has-dropdown.open .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #222 !important;
+  text-shadow: none !important;
+  text-decoration: none;
+  transition: background 0.18s ease;
+  white-space: nowrap;
+  font-family: 'Questrial', sans-serif;
+}
+.dropdown-menu li a:hover {
+  background: rgba(0,0,0,0.055);
+}
 .login-btn:hover { transform: translateY(-2px); }
 .signup-btn {
   background: #000; color: #fff; border: 1px solid #000;
@@ -340,6 +411,8 @@ body {
   .wt-photo-wide  { grid-column: span 1; }
   .wt-videos-grid { grid-template-columns: 1fr; }
   .wt-section { padding: 20px 20px 60px; }
+
+  
 }
 @media screen and (max-width: 540px) {
   .steps-grid { grid-template-columns: 1fr; }
