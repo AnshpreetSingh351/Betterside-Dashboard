@@ -6,16 +6,14 @@
   <title>About Us - BetterSide</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Questrial&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="about-style.css"/>
+  <link rel="stylesheet" href="/subpage/About/about-style.css"/>
 </head>
 <body>
 
 <a href="/" class="back-arrow"> ←</a>
 
   <div class="video-container">
-    <video autoplay muted loop playsinline class="bg-video">
-      <source src="video/Luxury_Building_Animation_Ready.mp4" type="video/mp4">
-    </video>
+  
     <div class="video-overlay"></div>
   </div>
 
@@ -26,19 +24,22 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="./../../index.html">Home</a></li>
-      <li><a href="./../../subpage/Explore/explore.html">Explore</a></li>
-      <li class="active"><a href="./../../subpage/About/index.html">About</a></li>
-        <li class="has-dropdown" id="unitsDropdown">
+      <li><a href="explore.html">Explore</a></li>
+      <li class="active"><a href="./about.html">About</a></li>
+      <li class="has-dropdown" id="unitsDropdown">
           <a href="#" class="dropdown-trigger">Property Listing <span class="dd-chevron"></span></a>
-          <ul class="dropdown-menu">
-                     <li><a href="/#mdb-section">3+1 BHK</a></li>
-<li><a href="/#cm-section">4 BHK</a></li>
-<li><a href="/#featured-projects-section">Penthouse</a></li>
-          </ul>
+    <ul class="dropdown-menu">
+  <li><a href="/index.html?filter=3bhk">3+1 BHK</a></li>
+  <li><a href="/index.html?filter=4bhk">4 BHK</a></li>
+  <li><a href="/index.html?filter=penthouse">Penthouse</a></li>
+  <li><a href="/index.html?filter=apartments">Apartments</a></li>
+  <li><a href="/index.html?filter=commercial">Commercials</a></li>
+  <li><a href="/index.html?filter=all">Show All</a></li>
+</ul>
         </li>
       <li><a href="#">Blog</a></li>
       
-      <li><a href="./../../subpage/contact/contact.html">Contact FAQ</a></li>
+      <li><a href="contact.html">Contact FAQ</a></li>
       <li class="mobile-auth-btn">
         <button class="login-btn" onclick="window.location.href='/subpage/Login/index.html'" style="width:150px;margin-bottom:10px;border:1px solid #ccc;">Login</button>
       </li>
@@ -108,15 +109,15 @@
         <div class="team-grid">
           <div class="team-card reveal">
             <div class="team-photo-wrap">
-              <img src="image/Owner.jpeg" alt="Founder" class="team-photo" onerror="this.style.opacity='0'"/>
+              <img src="/subpage/About/media/image/owner 1.jpeg" alt="Founder" class="team-photo" onerror="this.style.opacity='0'"/>
               <div class="team-photo-placeholder">
                 <span>📷</span>
-                <span class="tp-hint">Place Photo Here</span>
+                
               </div>
             </div>
             <div class="team-info">
               <h4 class="team-name">Founder Name</h4>
-              <span class="team-role">Co-Founder &amp; CEO</span>
+              <span class="team-role">Founder &amp; CEO</span>
               <p class="team-bio">With over a decade in luxury real estate development, driving innovation at the intersection of technology and premium property marketing across India's fastest-growing markets.</p>
               <div class="team-tags">
                 <span>Real Estate</span>
@@ -127,7 +128,7 @@
           </div>
           <div class="team-card reveal" style="transition-delay:.12s">
             <div class="team-photo-wrap">
-              <img src="image/founder2.jpg" alt="Founder" class="team-photo" onerror="this.style.opacity='0'"/>
+              <img src="/subpage/About/media/image/owner2.jpg" alt="Founder" class="team-photo" onerror="this.style.opacity='0'"/>
               <div class="team-photo-placeholder">
                 <span>📷</span>
                 <span class="tp-hint">Place Photo Here</span>
@@ -135,7 +136,7 @@
             </div>
             <div class="team-info">
               <h4 class="team-name">Founder Name</h4>
-              <span class="team-role">Co-Founder &amp; CTO</span>
+              <span class="team-role">Founder &amp; CEO</span>
               <p class="team-bio">Pioneering immersive real estate experiences with cutting-edge 3D technology and digital marketing expertise, turning property visions into unforgettable buyer journeys.</p>
               <div class="team-tags">
                 <span>3D Technology</span>
